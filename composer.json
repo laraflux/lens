@@ -1,0 +1,26 @@
+{
+    "name": "laraflux/lens",
+    "description": "Laravel Activity Log",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Laraflux",
+            "email": "trev@laraflux.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laraflux\\Lens\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laraflux\\Lens\\Providers\\LensServiceProvider"
+            ]
+        }
+    }
+}
