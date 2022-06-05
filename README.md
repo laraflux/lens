@@ -27,13 +27,14 @@ use Laraflux\Lens\Facades\Lens;
 Lens::log('some text');
 ```
 
-### Example usage
+### Retrieve log data
 ```
 use Laraflux\Lens\Models\Log;
 
+Log::find(1);
 Log::all();
 Log::paginate();
 Log::whereUser(1)->get();
 Log::whereLoggableType(User::class);
-$user->logs;
+$model->logs;
 ```
