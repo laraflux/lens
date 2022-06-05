@@ -20,7 +20,10 @@
         "laravel": {
             "providers": [
                 "Laraflux\\Lens\\Providers\\LensServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Lens": "Laraflux\\Lens\\Facades\\Lens"
+            }
         }
     }
 }
