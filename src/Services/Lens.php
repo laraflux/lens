@@ -3,7 +3,6 @@
 namespace LaraFlux\Lens\Services;
 
 use Laraflux\Lens\Models\Log;
-use Illuminate\Database\Eloquent\Model;
 
 class Lens
 {
