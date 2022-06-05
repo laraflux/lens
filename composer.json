@@ -16,6 +16,11 @@
             "Laraflux\\Lens\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Laraflux\\Lens\\Tests\\": "tests"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
@@ -26,5 +31,9 @@
                 "Lens": "Laraflux\\Lens\\Facades\\Lens"
             }
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "orchestra/testbench": "^7.5"
     }
 }
