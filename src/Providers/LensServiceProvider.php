@@ -9,13 +9,15 @@ class LensServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->app->bind('lens', function($app) {
-            return new Lens;
-        });
-
+        $this->registerFacade();
         $this->publishConfig();
         $this->publishTranslations();
         $this->publishMigrations();
+    }
+
+    public function registerFacade(): void
+    {
+        $this->app->bind('lens', fn ($app) => new Lens);
     }
 
     public function publishConfig(): void

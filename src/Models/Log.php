@@ -10,18 +10,13 @@ class Log extends Model
         'action',
         'user_id',
         'changes',
+        'loggable_type',
+        'loggable_id',
     ];
 
     public function loggable()
     {
         return $this->morphTo();
-    }
-
-    protected static function booted()
-    {
-        static::creating(function ($log) {
-            $log->user_id = auth()->id();
-        });
     }
 
     public function user()

@@ -19,7 +19,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Laraflux\\Lens\\Providers\\LensServiceProvider"
+                "Laraflux\\Lens\\Providers\\LensServiceProvider",
+                "Laraflux\\Lens\\Providers\\EventServiceProvider"
             ],
             "aliases": {
                 "Lens": "Laraflux\\Lens\\Facades\\Lens"
