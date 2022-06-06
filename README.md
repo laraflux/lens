@@ -9,6 +9,12 @@ composer require laraflux/lens
 php artisan vendor-publish --tag=lens
 php artisan migrate
 ```
+
+## Config
+```
+
+```
+
 ### attaching to a model
 ```
 use Laraflux\Lens\Traits\LogsActivity;
@@ -16,15 +22,6 @@ use Laraflux\Lens\Traits\LogsActivity;
 class User extends  Model
 {
     use LogsActivity;
-```
-
-### manually log
-```
-$model->logs()->create('John sent an invoice to Jim');
-
-// no model?
-use Laraflux\Lens\Facades\Lens;
-Lens::log('some text');
 ```
 
 ### Retrieve log data

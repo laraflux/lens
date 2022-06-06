@@ -10,8 +10,6 @@ class Log extends Model
         'action',
         'user_id',
         'changes',
-        'loggable_type',
-        'loggable_id',
     ];
 
     public function loggable()
