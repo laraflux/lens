@@ -13,7 +13,7 @@ class PurgeTest extends TestCase
     /** @test */
     function clears_log_if_more_than()
     {
-        Log::factory(101)->create();
+        Log::factory(1001)->create();
 
         $this->artisan('lens:purge-more-than')->assertSuccessful();
 

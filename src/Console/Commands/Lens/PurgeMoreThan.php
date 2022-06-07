@@ -13,8 +13,13 @@ class PurgeMoreThan extends Command
 
     public function handle()
     {
-        $count = Log::count();
         $limit = config('lens.purge.more_than');
+
+        if ($limit === 0) {
+            return Command::SUCCESS;
+        }
+
+        $count = Log::count();
 
         if ($count > $limit) {
             Log::orderby('created_at', 'asc')->limit($count - $limit)->delete();

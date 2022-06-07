@@ -34,8 +34,8 @@ return [
      * set to 0 to disable limit.
      */
     'purge' => [
-        'auto' => env('LENS_PURGE_AUTOMATICALLY', true),
-        'more_than' => env('LENS_PURGE_MORE_THAN', 100),
+        'auto' => env('LENS_PURGE_AUTOMATICALLY', false),
+        'more_than' => env('LENS_PURGE_MORE_THAN', 1000),
         'older_than' => env('LENS_PURGE_OLDER_THAN', 365),
     ]
 ];

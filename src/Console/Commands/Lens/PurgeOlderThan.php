@@ -13,7 +13,13 @@ class PurgeOlderThan extends Command
 
     public function handle()
     {
-        $date = now()->subDays(config('lens.purge.older_than'));
+        $days = config('lens.purge.older_than');
+
+        if ($days === 0) {
+            return Command::SUCCESS;
+        }
+
+        $date = now()->subDays($days);
 
         Log::where('created_at', '<=', $date)->delete();
 
