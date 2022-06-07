@@ -1,5 +1,5 @@
 # Laravel Lens
-Automatically log all changes within your Laravel app.
+Automatically log all model events and changes within your Laravel app.
 
 ## Installation
 ```
