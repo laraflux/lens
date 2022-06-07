@@ -2,9 +2,15 @@
 
 return [
 
-    /**
-     * Which actions are we observing by default.
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | Observers
+    |--------------------------------------------------------------------------
+    |
+    | This option defines which model events we are observing.
+    |
+    */
+
     'observe' => [
         'creating' => false,
         'created' => true,
@@ -21,18 +27,22 @@ return [
         'replicating' => false,
     ],
 
-    /**
-     * The field used in the log to identify a user.
-     */
-    'user' => [
-        'identifier' => 'name',
-    ],
+    /*
+    |--------------------------------------------------------------------------
+    | Default Purge limits
+    |--------------------------------------------------------------------------
+    |
+    | Does not purge automatically by default (scheduler must also be running).
+    | The older_than limit is set in days.
+    | Set to 0 to disable limits.
+    |
+    | Commands for the scheduler are:
+    | $schedule->command('lens:purge-more-than')->hourly();
+    | $schedule->command('lens:purge-older-than')->daily();
+    | You only need to set these manually if auto = false.
+    |
+    */
 
-    /**
-     * Automatic purge limits.
-     * older_than set in days.
-     * set to 0 to disable limit.
-     */
     'purge' => [
         'auto' => env('LENS_PURGE_AUTOMATICALLY', false),
         'more_than' => env('LENS_PURGE_MORE_THAN', 1000),
