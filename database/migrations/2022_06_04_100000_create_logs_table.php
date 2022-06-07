@@ -12,7 +12,7 @@ class CreateLogsTable extends Migration
             $table->id();
             $table->nullableMorphs('loggable');
             $table->foreignId('user_id')->nullable()->index();
-            $table->text('action');
+            $table->string('event');
             $table->json('changes')->nullable();
             $table->timestamps();
         });

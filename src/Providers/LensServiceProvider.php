@@ -3,14 +3,15 @@
 namespace Laraflux\Lens\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Console\Scheduling\Schedule;
 
 class LensServiceProvider extends ServiceProvider
 {
     public function boot()
     {
         $this->publishConfig();
-        $this->publishTranslations();
         $this->publishMigrations();
+        $this->registerPurgeCommands();
     }
 
     public function publishConfig(): void
@@ -22,21 +23,29 @@ class LensServiceProvider extends ServiceProvider
         }
     }
 
-    public function publishTranslations(): void
-    {
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../../lang' => lang_path(),
-            ], 'lens');
-        }
-    }
-
     public function publishMigrations(): void
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../../database/migrations' => database_path('migrations'),
             ], 'lens');
+        }
+    }
+
+    public function registerPurgeCommands(): void
+    {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                \Laraflux\Lens\Console\Commands\Lens\PurgeMoreThan::class,
+                \Laraflux\Lens\Console\Commands\Lens\PurgeOlderThan::class,
+            ]);
+            $this->app->booted(function () {
+                if (config('lens.purge.auto') === true) {
+                    $schedule = $this->app->make(Schedule::class);
+                    $schedule->command('lens:purge-more-than')->hourly();
+                    $schedule->command('lens:purge-older-than')->daily();
+                }
+            });
         }
     }
 }

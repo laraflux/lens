@@ -18,7 +18,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Laraflux\\Lens\\Tests\\": "tests"
+            "Laraflux\\Lens\\Tests\\": "tests",
+            "Laraflux\\Lens\\Database\\Factories\\": "database/factories/"
         }
     },
     "extra": {

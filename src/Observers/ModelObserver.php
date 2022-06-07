@@ -10,7 +10,7 @@ class ModelObserver
     {
         if (config('lens.observe.creating')) {
             $model->logs()->create([
-                'action' => $this->getActionText($model, 'creating'),
+                'event' => 'creating',
                 'changes' => json_encode($model),
             ]);
         }
@@ -20,7 +20,7 @@ class ModelObserver
     {
         if (config('lens.observe.created')) {
             $model->logs()->create([
-                'action' => $this->getActionText($model, 'created'),
+                'event' => 'created',
                 'changes' => json_encode($model),
             ]);
         }
@@ -30,7 +30,7 @@ class ModelObserver
     {
         if (config('lens.observe.updating')) {
             $model->logs()->create([
-                'action' => $this->getActionText($model, 'updated'),
+                'event' => 'updated',
                 'changes' => json_encode($model->getChanges()),
             ]);
         }
@@ -40,7 +40,7 @@ class ModelObserver
     {
         if (config('lens.observe.updated')) {
             $model->logs()->create([
-                'action' => $this->getActionText($model, 'updated'),
+                'event' => 'updated',
                 'changes' => json_encode($model->getChanges()),
             ]);
         }
@@ -50,7 +50,7 @@ class ModelObserver
     {
         if (config('lens.observe.saving')) {
             $model->logs()->create([
-                'action' => $this->getActionText($model, 'saving'),
+                'event' => 'saving',
                 'changes' => json_encode($model->getChanges()),
             ]);
         }
@@ -60,7 +60,7 @@ class ModelObserver
     {
         if (config('lens.observe.saved')) {
             $model->logs()->create([
-                'action' => $this->getActionText($model, 'saved'),
+                'event' => 'saved',
                 'changes' => json_encode($model->getChanges()),
             ]);
         }
@@ -70,7 +70,7 @@ class ModelObserver
     {
         if (config('lens.observe.deleting')) {
             $model->logs()->create([
-                'action' => $this->getActionText($model, 'deleting'),
+                'event' => 'deleting',
                 'changes' => json_encode($model),
             ]);
         }
@@ -80,7 +80,7 @@ class ModelObserver
     {
         if (config('lens.observe.deleted')) {
             $model->logs()->create([
-                'action' => $this->getActionText($model, 'deleted'),
+                'event' => 'deleted',
                 'changes' => json_encode($model),
             ]);
         }
@@ -90,7 +90,7 @@ class ModelObserver
     {
         if (config('lens.observe.trashed')) {
             $model->logs()->create([
-                'action' => $this->getActionText($model, 'trashed'),
+                'event' => 'trashed',
                 'changes' => json_encode($model),
             ]);
         }
@@ -100,7 +100,7 @@ class ModelObserver
     {
         if (config('lens.observe.forceDeleted')) {
             $model->logs()->create([
-                'action' => $this->getActionText($model, 'forceDeleted'),
+                'event' => 'forceDeleted',
                 'changes' => json_encode($model),
             ]);
         }
@@ -110,7 +110,7 @@ class ModelObserver
     {
         if (config('lens.observe.restoring')) {
             $model->logs()->create([
-                'action' => $this->getActionText($model, 'restoring'),
+                'event' => 'restoring',
                 'changes' => json_encode($model),
             ]);
         }
@@ -120,7 +120,7 @@ class ModelObserver
     {
         if (config('lens.observe.restored')) {
             $model->logs()->create([
-                'action' => $this->getActionText($model, 'restored'),
+                'event' => 'restored',
                 'changes' => json_encode($model),
             ]);
         }
@@ -130,19 +130,9 @@ class ModelObserver
     {
         if (config('lens.observe.replicating')) {
             $model->logs()->create([
-                'action' => $this->getActionText($model, 'replicating'),
+                'event' => 'replicating',
                 'changes' => json_encode($model),
             ]);
         }
-    }
-
-    protected function getActionText(Model $model, string $action): string
-    {
-        $identifier = config('lens.user.identifier', 'name');
-
-        return __('lens.' . $action, [
-            'identifier' => auth()->user()->$identifier ?? 'A guest',
-            'model' => strtolower(class_basename($model)),
-        ]);
     }
 }
