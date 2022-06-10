@@ -1,4 +1,4 @@
-[![Latest Version](https://img.shields.io/packagist/v/laraflux/lens?label=version)](https://packagist.org/packages/laraflux/lens/) [![Packagist Downloads](https://img.shields.io/packagist/dm/laraflux/lens.svg?label=packagist%20downloads)](https://packagist.org/packages/laraflux/lens)
+[![Latest Version](https://img.shields.io/packagist/v/laraflux/lens?label=version)](https://packagist.org/packages/laraflux/lens/) [![ Downloads](https://img.shields.io/packagist/dm/laraflux/lens.svg?label=downloads)](https://packagist.org/packages/laraflux/lens)
 
 # Laravel Lens
 Automatically log all model events and changes within your Laravel app.
