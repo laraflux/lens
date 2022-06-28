@@ -2,16 +2,16 @@
 
 namespace Laraflux\Lens\Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laraflux\Lens\Models\Log;
 use Laraflux\Lens\Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class PurgeTest extends TestCase
 {
     use RefreshDatabase;
 
     /** @test */
-    function clears_log_if_more_than()
+    public function clears_log_if_more_than()
     {
         Log::factory(1001)->create();
 
@@ -21,7 +21,7 @@ class PurgeTest extends TestCase
     }
 
     /** @test */
-    function clear_log_if_older_than()
+    public function clear_log_if_older_than()
     {
         Log::factory()->create([
             'created_at' => now()->subDays(366),

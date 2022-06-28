@@ -2,8 +2,8 @@
 
 namespace Laraflux\Lens\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Support\ServiceProvider;
 
 class LensServiceProvider extends ServiceProvider
 {

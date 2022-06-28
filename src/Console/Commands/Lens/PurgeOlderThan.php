@@ -2,8 +2,8 @@
 
 namespace Laraflux\Lens\Console\Commands\Lens;
 
-use Laraflux\Lens\Models\Log;
 use Illuminate\Console\Command;
+use Laraflux\Lens\Models\Log;
 
 class PurgeOlderThan extends Command
 {

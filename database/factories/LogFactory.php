@@ -2,8 +2,8 @@
 
 namespace Laraflux\Lens\Database\Factories;
 
-use Laraflux\Lens\Models\Log;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Laraflux\Lens\Models\Log;
 
 class LogFactory extends Factory
 {

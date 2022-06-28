@@ -2,9 +2,9 @@
 
 namespace Laraflux\Lens\Traits;
 
+use Illuminate\Database\Eloquent\Relations\morphMany;
 use Laraflux\Lens\Models\Log;
 use Laraflux\Lens\Observers\ModelObserver;
-use Illuminate\Database\Eloquent\Relations\morphMany;
 
 trait LogsActivity
 {

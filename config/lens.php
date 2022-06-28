@@ -47,5 +47,5 @@ return [
         'auto' => env('LENS_PURGE_AUTOMATICALLY', false),
         'more_than' => env('LENS_PURGE_MORE_THAN', 1000),
         'older_than' => env('LENS_PURGE_OLDER_THAN', 365),
-    ]
+    ],
 ];

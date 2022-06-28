@@ -2,7 +2,7 @@
 
 namespace Laraflux\Lens\Tests;
 
-use \Orchestra\Testbench\TestCase as Orchestra;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
@@ -10,8 +10,8 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        $this->loadMigrationsFrom(__DIR__ . '/Helpers/database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/Helpers/database/migrations');
         $this->artisan('migrate', ['--database' => 'testbench'])->run();
     }
 
@@ -25,7 +25,7 @@ class TestCase extends Orchestra
 
     protected function getEnvironmentSetUp($app)
     {
-        $lens = include(__DIR__ . '/../config/lens.php');
+        $lens = include __DIR__.'/../config/lens.php';
 
         $app['config']->set('lens', $lens);
         $app['config']->set('database.default', 'testbench');

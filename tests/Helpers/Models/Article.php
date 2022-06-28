@@ -2,8 +2,8 @@
 
 namespace Laraflux\Lens\Tests\Helpers\Models;
 
-use Laraflux\Lens\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\Model;
+use Laraflux\Lens\Traits\LogsActivity;
 
 class Article extends Model
 {

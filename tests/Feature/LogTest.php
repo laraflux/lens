@@ -2,16 +2,16 @@
 
 namespace Laraflux\Lens\Tests\Feature;
 
-use Laraflux\Lens\Tests\TestCase;
-use Laraflux\Lens\Tests\Helpers\Models\Article;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Laraflux\Lens\Tests\Helpers\Models\Article;
+use Laraflux\Lens\Tests\TestCase;
 
 class LogTest extends TestCase
 {
     use RefreshDatabase;
 
     /** @test */
-    function creates_entry_for_model_event()
+    public function creates_entry_for_model_event()
     {
         $article = Article::create([
             'title' => 'Test Article',
@@ -24,7 +24,7 @@ class LogTest extends TestCase
     }
 
     /** @test */
-    function does_not_create_entry_for_non_observed_event()
+    public function does_not_create_entry_for_non_observed_event()
     {
         $article = Article::create([
             'title' => 'Test Article',
@@ -37,7 +37,7 @@ class LogTest extends TestCase
     }
 
     /** @test */
-    function can_get_logs_for_model()
+    public function can_get_logs_for_model()
     {
         $article = Article::create([
             'title' => 'Test Article',
