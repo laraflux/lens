@@ -4,31 +4,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Observers
-    |--------------------------------------------------------------------------
-    |
-    | This option defines which model events we are observing.
-    |
-    */
-
-    'observe' => [
-        'creating' => false,
-        'created' => true,
-        'updating' => false,
-        'updated' => true,
-        'saving' => false,
-        'saved' => false,
-        'deleting' => false,
-        'deleted' => true,
-        'trashed' => false,
-        'forceDeleted' => false,
-        'restoring' => false,
-        'restored' => false,
-        'replicating' => false,
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
     | Default Purge limits
     |--------------------------------------------------------------------------
     |
@@ -39,7 +14,7 @@ return [
     | Commands for the scheduler are:
     | $schedule->command('lens:purge-more-than')->hourly();
     | $schedule->command('lens:purge-older-than')->daily();
-    | You only need to set these manually if auto = false.
+    | You only need to schedule these manually if auto = false.
     |
     */
 

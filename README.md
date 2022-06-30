@@ -7,41 +7,23 @@ Automatically log all model events and changes within your Laravel app.
 ## Installation
 ```
 composer require laraflux/lens
-```
-```
 php artisan vendor-publish --tag=lens
 php artisan migrate
 ```
 
 ### Attaching to a model
+Add the LogsActivityTrait and define any model events to be captured in a $loggable array.
 ```
 use Laraflux\Lens\Traits\LogsActivity;
 
-class User extends  Model
+class User extends Model
 {
     use LogsActivity;
-```
 
-## Config
-In the lens config set which model events you would like to observe.
-By default Created, Updated and Deleted are observed.
-```
-    'observe' => [
-        'retrieved' => false,
-        'creating' => false,
-        'created' => true,
-        'updating' => false,
-        'updated' => true,
-        'saving' => false,
-        'saved' => false,
-        'deleting' => false,
-        'deleted' => true,
-        'trashed' => false,
-        'forceDeleted' => false,
-        'restoring' => false,
-        'restored' => false,
-        'replicating' => false,
-    ],
+    protected array $loggable = [
+        'retrieved',
+        'created',
+    ];
 ```
 
 ### Retrieve log data
@@ -67,7 +49,7 @@ You can  automatically purge the log if it exceeds a certain size or based on lo
     'older_than' => env('LENS_PURGE_OLDER_THAN', 365), // set in days
 ]
 ```
-if you choose `purge.auto = true` the following schedule will be set up for you:
+If you choose `purge.auto = true` the following schedule will be set up for you:
 ```
 $schedule->command('lens:purge-more-than')->hourly();
 $schedule->command('lens:purge-older-than')->daily();

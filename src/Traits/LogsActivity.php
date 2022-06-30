@@ -17,4 +17,9 @@ trait LogsActivity
     {
         return $this->morphMany(Log::class, 'loggable');
     }
+
+    public function canLog(string $event): bool
+    {
+        return in_array($event, $this->loggable ?? []);
+    }
 }
