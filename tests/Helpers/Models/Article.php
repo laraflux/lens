@@ -10,4 +10,8 @@ class Article extends Model
     use LogsActivity;
 
     protected $guarded = [];
+
+    protected array $loggable = [
+        'created',
+    ];
 }
