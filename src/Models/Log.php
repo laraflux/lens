@@ -5,6 +5,8 @@ namespace Laraflux\Lens\Models;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Laraflux\Lens\Database\Factories\LogFactory;
 
 class Log extends Model
@@ -17,17 +19,17 @@ class Log extends Model
         'changes',
     ];
 
-    protected static function newFactory()
+    protected static function newFactory(): LogFactory
     {
         return LogFactory::new();
     }
 
-    public function loggable()
+    public function loggable(): MorphTo
     {
         return $this->morphTo();
     }
 
-    public function user()
+    public function user(): HasOne
     {
         return $this->hasOne(User::class);
     }
